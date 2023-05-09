@@ -8,6 +8,9 @@
     box-sizing: border-box;
 }
 
+/*****************************
+    UTILITIES
+******************************/
 .square {
     float: left;
     width: calc(100% / 10);
@@ -19,9 +22,6 @@
     align-items: center;
 }
 
-/*****************************
-    UTILITY
-******************************/
 .hide {
     display: none;
 }
@@ -49,7 +49,8 @@ header,
 
 #container {
     background-color: aquamarine;
-    text-align: center;
+    min-height: 300px;
+
 }
 
 #grid {

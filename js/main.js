@@ -33,17 +33,13 @@
                         console.log("the number you selected is: " + i)
                     }
                 );
-                //Con il click associo la classe colore
 
+                //"appendo" il quadrato
                 gridElement.append(newSquare);
             }           
         }
     );
 
-        
-
-
-        
 
 
 /* FUNCTIONS */
