@@ -1,9 +1,35 @@
+
+/*****************************
+    GENERAL
+******************************/
 * {
     margin: 0; 
     padding: 0;
     box-sizing: border-box;
 }
 
+.square {
+    float: left;
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: solid 1px;
+    cursor: pointer;
+}
+
+/*****************************
+    UTILITY
+******************************/
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+/*****************************
+    STRUCTURE
+******************************/
 header,
 #container {
     padding: 10px;
@@ -18,15 +44,13 @@ header,
     text-align: center;
 }
 
-
-
-
-
+#grid {
+    width: 70%;
+    max-width: 900px;
+    aspect-ratio: 1/1;
+    border: solid 1px;
+}
 
 /*****************************
     DEBUG
 ******************************/
-#grid {
-    border: solid 1px;
-    max-width: fit-content;
-}
