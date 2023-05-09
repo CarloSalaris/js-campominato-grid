@@ -15,25 +15,35 @@
             //Creo un loop che si ripeta tante volte quante il valore massimo prestabilito
             for (let i = 1; i <= 100; i++) {
                 //Creo una funzione per riprodurre un quadrato (ogni volta)
-            const newSquare = createGridSquare("div", "square");
+                const newSquare = createGridSquare("div", "square");
 
-
-            // Ogni cella ha un numero progressivo, da 1 a 100 (Ci saranno quindi 10 caselle per ognuna delle 10 righe.)
+// Ogni cella ha un numero progressivo, da 1 a 100 (Ci saranno quindi 10 caselle per ognuna delle 10 righe.)
                 //Creo lo span che andrà in ogni quadrato
+                const newSpan = document.createElement("span");
                 //Lo appendo con il valore "i" del for loop
+                newSpan.append(i);
+                newSquare.append(newSpan);
+    
+                //associo l'evento click a ogni nuovo quadrato creato
+                newSquare.addEventListener("click",
+                    function() {
+                        // la cella cliccata si colora di azzurro
+                        this.classList.add("blue_bg");
+                        // emetto un messaggio in console con il numero della cella cliccata.
+                        console.log("the number you selected is: " + i)
+                    }
+                );
+                //Con il click associo la classe colore
 
-            gridElement.append(newSquare);
+                gridElement.append(newSquare);
             }           
         }
     );
 
         
 
-// Quando l’utente clicca su ogni cella:
-    // la cella cliccata si colora di azzurro
-    // emetto un messaggio in console con il numero della cella cliccata.
-        //associo l'evento click a ogni nuovo quadrato creato
-            //Con il click associo la classe colore
+
+        
 
 
 /* FUNCTIONS */
