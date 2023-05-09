@@ -5,39 +5,37 @@
 - con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
 - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe; */
 
-/* //stabilisco dimensione quadrato in base al livello selezionato
-                if (diffLevel === 2){
-                    newSquare.style.width = ("calc(100% / 9)")
-                }else if (diffLevel === 3) {
-                    newSquare.style.width = ("calc(100% / 7)")
-                } */
+ //stabilisco dimensione quadrato in base al livello selezionato
+    /*if (diffLevel === 2){
+        newSquare.style.width = ("calc(100% / 9)")
+    }else if (diffLevel === 3) {
+        newSquare.style.width = ("calc(100% / 7)")
+    } */
                 
 
-
-
-/* Consegna */
-
 // L’utente clicca su un bottone che genererà una griglia di gioco quadrata.
-    //Seleziono la griglia
     const gridElement = document.getElementById("grid");
-    //Seleziono il button
     const startButton = document.getElementById("startGame");
+
     //gli assegno l'evento "click" per fare apparire la griglia.
     startButton.addEventListener("click", 
+        
         function() {
+        
             const diffLevel = document.getElementById("diffLevel").value;
-            console.log(diffLevel);
+            // console.log(diffLevel);
             
-            if (diffLevel === 2){
-                startClickFunction(81);
-                newSquare.style.width = ("calc(100% / 9)");
-                console.log("dovrebbero essere 81!");
+            if (diffLevel == 2){
+                startClickFunction(81, "calc(100% / 9)");
+                console.log("Hai selezionato il livello medio");
                               
-            }else if (diffLevel === 3) {
-                startClickFunction(49);
-                newSquare.style.width = ("calc(100% / 7)");
+            }else if (diffLevel == 3) {
+                startClickFunction(49, "calc(100% / 7)");
+                console.log("Hai selezionato il livello difficile");
+
             }else {
-                startClickFunction(100);
+                startClickFunction(100, "calc(100% / 10)");
+                console.log("Hai selezionato il livello facile");
             }
         }
     );
@@ -53,25 +51,23 @@ function showHiddenElement(elementName) {
 };
 
 //Creo una funzione per riprodurre un quadrato
-function createGridSquare(tagType, classToAdd) {
+function createGridSquare(tagType, classToAdd, calcWidth) {
     const newElement = document.createElement(tagType)
     newElement.classList.add(classToAdd);
+    newElement.style.width = calcWidth;
     return newElement;
 };
 
 //Funzione di click
-function startClickFunction(maxNum) {
+function startClickFunction(maxNum, calcWidth) {
     //Mostra griglia nascosta
     showHiddenElement(gridElement);
     //Creo un loop che si ripeta tante volte quante il valore massimo prestabilito
     for (let i = 1; i <= maxNum; i++) {
         
         //Creo una funzione per riprodurre un quadrato (ogni volta)
-        const newSquare = createGridSquare("div", "square");
+        const newSquare = createGridSquare("div", "square", calcWidth);
         
-        
-
-// Ogni cella ha un numero progressivo, da 1 a 100 (Ci saranno quindi 10 caselle per ognuna delle 10 righe.)
         //Creo lo span che andrà in ogni quadrato
         const newSpan = document.createElement("span");
         //Lo appendo con il valore "i" del for loop

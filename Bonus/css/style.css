@@ -13,7 +13,7 @@
 ******************************/
 .square {
     float: left;
-    width: calc(100% / 10);
+    /* width: calc(100% / 10); */
     /* height: calc(100% / 10); */
     aspect-ratio: 1/1;
     border: solid 1px black;
