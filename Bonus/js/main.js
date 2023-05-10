@@ -5,12 +5,14 @@
 - con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
 - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe; */
 
- //stabilisco dimensione quadrato in base al livello selezionato
+//stabilisco dimensione quadrato in base al livello selezionato
     /*if (diffLevel === 2){
         newSquare.style.width = ("calc(100% / 9)")
     }else if (diffLevel === 3) {
         newSquare.style.width = ("calc(100% / 7)")
     } */
+
+// squareWidth = "calc(100% / Math.sqrt(maxNum))";
                 
 
 // L’utente clicca su un bottone che genererà una griglia di gioco quadrata.
@@ -21,7 +23,8 @@
     startButton.addEventListener("click", 
         
         function() {
-        
+
+            //Valore relativo al livello di difficoltà
             const diffLevel = document.getElementById("diffLevel").value;
             // console.log(diffLevel);
             
@@ -41,13 +44,14 @@
     );
 
 
-
 /* FUNCTIONS */
 
 //Funzione per far apparire un elemento non visibile
 function showHiddenElement(elementName) {
-    elementName.classList.remove("hide");
-    elementName.classList.add("show");
+    if (elementName.classList.contains("hide")) {
+        elementName.classList.remove("hide");
+        elementName.classList.add("show");
+    }
 };
 
 //Creo una funzione per riprodurre un quadrato
@@ -60,6 +64,9 @@ function createGridSquare(tagType, classToAdd, calcWidth) {
 
 //Funzione di click
 function startClickFunction(maxNum, calcWidth) {
+    
+    //Svuoto la griglia
+    gridElement.innerHTML = "";
     //Mostra griglia nascosta
     showHiddenElement(gridElement);
     //Creo un loop che si ripeta tante volte quante il valore massimo prestabilito
@@ -67,11 +74,14 @@ function startClickFunction(maxNum, calcWidth) {
         
         //Creo una funzione per riprodurre un quadrato (ogni volta)
         const newSquare = createGridSquare("div", "square", calcWidth);
+
+        //"appendo" il quadrato
+        gridElement.append(newSquare);
         
         //Creo lo span che andrà in ogni quadrato
         const newSpan = document.createElement("span");
         //Lo appendo con il valore "i" del for loop
-        newSpan.append(i);
+        newSpan.innerHTML = i;
         newSquare.append(newSpan);
 
         //associo l'evento click a ogni nuovo quadrato creato
@@ -84,7 +94,5 @@ function startClickFunction(maxNum, calcWidth) {
             }
         );
 
-        //"appendo" il quadrato
-        gridElement.append(newSquare);
     }           
 };

@@ -60,7 +60,7 @@ header,
     width: 70%;
     max-width: 900px;
     aspect-ratio: 1/1;
-    border: solid 1px;
+    /* border: solid 1px; */
 }
 
 /*****************************
